@@ -1,0 +1,11 @@
+.table:nth-child(2n + 2) {
+    background-color: #fbfbfb;
+    padding: 5px;
+  }
+  
+.table:nth-child(2n + 1) {
+    background-color: #f3f3f3;
+    padding: 5px;
+    height: 50px;
+    margin-left: 10px;
+}
