@@ -2,15 +2,12 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import  { Redirect } from 'react-router-dom';
-import pathImg from '../assets/prometheu.svg';
-
-/* import { useHistory } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import StoreContext from '../Context/Context'; */
+import imgGif from '../assets/loading.gif';
+import img from '../assets/lata.svg';
 import '../style/Login.css';
 
 function Login() {
-  const [token, setToken] = useState('');
+  const [loading, setLoading] = useState(false);
   const [redirect, setRedirect] = useState(false);
   const [login, setLogin] = useState({
     email: '',
@@ -27,6 +24,7 @@ function Login() {
 
   function onSubmit () {
     const { email, password } = login;
+    setLoading(true);
 
     const user = {
       email,
@@ -37,6 +35,7 @@ function Login() {
     .then((res) => {
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('email', email);
+      setLoading(false);
       setRedirect((old) => !old);
     })
     .catch((_res) => toast.error('user or password invalid'));
@@ -46,9 +45,17 @@ function Login() {
     return <Redirect to="/dashboard" />
   }
 
+  if(loading) {
+    return (
+      <div className="loading">
+        <img src={imgGif} />
+      </div>
+    )
+  }
+
   return (
     <div className="container">
-      <img className="img" src={pathImg} />
+      <img className="img" src={img} />
       <div className="left">
       <div className="card">
         <div className="">

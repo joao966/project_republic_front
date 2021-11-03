@@ -2,9 +2,11 @@ import React from "react";
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-// import InputMask from 'react-input-mask';
+import {Col} from "antd";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import '../../style/form.css';
+import img from '../../assets/juca.svg';
 
 
 export const WallTree = ({ formData, setForm, navigation }) => {
@@ -15,6 +17,10 @@ export const WallTree = ({ formData, setForm, navigation }) => {
     const resultPorta = (Number(portaC) * 1.52);
     const resultJanela = (Number(janelaC) * 2.4);
     const result = resultJanela + resultPorta;
+
+    if(!alturaC || !larguraC) {
+      return toast.error('preencha todos os campos')
+    };
 
     if(result <= sumWall / 2 ) {
       return navigation.next();
@@ -35,6 +41,8 @@ export const WallTree = ({ formData, setForm, navigation }) => {
   
   return (
     <Container maxWidth="xs">
+      <div className="container">
+      <img className="fadeIn" src={img} />
       <h3>PAREDE TRÊS</h3>
       <TextField
         label="altura"
@@ -56,16 +64,18 @@ export const WallTree = ({ formData, setForm, navigation }) => {
         autoComplete="off"
         fullWidth
       />
-     <div style={{display: "flex", justifyContent: "space-around"}}>
+      <div style={{display: "flex", justifyContent: "space-around"}}>
         <label style={{display: "flex", flexDirection: "column"}}>
           Janela
-          <input onChange={setForm} name="janleaC" type="number" min="1" max="3" />
+          <input className="input" onChange={setForm} name="janleaC" type="number" min="1" max="3" />
         </label>
+        <Col span={1} />
         <label style={{display: "flex", flexDirection: "column"}}>
           Porta
-          <input onChange={setForm} name="portaC" type="number" min="1" max="3" />
+          <input className="input" onChange={setForm} name="portaC" type="number" min="1" max="3" />
         </label>
       </div>
+      <hr className="hr" />
 
       <div style={{ marginTop: "1rem" }}>
         <Button
@@ -83,6 +93,7 @@ export const WallTree = ({ formData, setForm, navigation }) => {
         >
           Next
         </Button>
+      </div>
       </div>
     </Container>
   );

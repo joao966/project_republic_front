@@ -1,0 +1,51 @@
+.container {
+  display: "flex";
+  align-items: "center";
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.fadeIn {
+  animation: fadeIn 3s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.button {
+  padding: 12px 80px;
+  width: 100%;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  background-color: slateblue;
+  color: white;
+  font-size: 32px;
+  margin-top: 20px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.button:hover {
+  background-color: rgb(175, 162, 255);
+  color: white;
+  transition: ease 0.4s;
+}
+
+.hr {
+  margin: 5px 5px 5px 5px;
+  margin-top: 20px;
+  width: 100%;
+  border-color: slateblue;
+}
+
+.input {
+  border-radius: 8px;
+}
+
+.buttonFor {
+  display: flex;
+  margin-top: 20px;
+}

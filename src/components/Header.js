@@ -1,10 +1,11 @@
 import React from "react";
+import pathImg from '../assets/logo.svg';
 
 function Home() {
   return (
-    <header style={{display: "flex", justifyContent: "space-around", backgroundColor: "black", color: "white"}}>
+    <header style={{display: "flex", alignItems: "center", justifyContent: "space-around", backgroundColor: "slateblue", color: "white"}}>
       <p>TINTAS PROMETEU</p>
-      <img src="https://www.guiadoscuriosos.com.br/wp-content/uploads/2019/04/tinta-de-parede.jpeg" width="80px"/>
+      <img src={pathImg} width="80px"/>
     </header>
   );
 }

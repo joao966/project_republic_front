@@ -100,6 +100,13 @@ body {
   width: 300px;
 }
 
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
 .input-login {
   padding: 12px 80px;
   width: 100%;

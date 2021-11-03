@@ -2,9 +2,11 @@ import React from "react";
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-// import InputMask from 'react-input-mask';
+import {Col} from "antd";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import '../../style/form.css';
+import img from '../../assets/juca.svg';
 
 export const WallTwo = ({ formData, setForm, navigation }) => {
   const {alturaB, larguraB, janelaB, portaB} = formData;
@@ -14,6 +16,10 @@ export const WallTwo = ({ formData, setForm, navigation }) => {
     const resultPorta = (Number(portaB) * 1.52);
     const resultJanela = (Number(janelaB) * 2.4);
     const result = resultJanela + resultPorta;
+
+    if(!alturaB || !larguraB) {
+      return toast.error('preencha todos os campos')
+    };
 
     if(result <= sumWall / 2 ) {
       return navigation.next();
@@ -34,6 +40,8 @@ export const WallTwo = ({ formData, setForm, navigation }) => {
   
   return (
     <Container maxWidth="xs">
+      <div className="container">
+      <img className="fadeIn" src={img} />
       <h3>PAREDE DOIS</h3>
       <TextField
         label="altura"
@@ -58,14 +66,17 @@ export const WallTwo = ({ formData, setForm, navigation }) => {
       <div style={{display: "flex", justifyContent: "space-around"}}>
         <label style={{display: "flex", flexDirection: "column"}}>
           Janela
-          <input name="janelaB" onChange={setForm} type="number" min="1" max="3" />
+          <input className="input" name="janelaB" onChange={setForm} type="number" min="1" max="3" />
         </label>
+        <Col span={1} />
+
         <label style={{display: "flex", flexDirection: "column"}}>
           Porta
-          <input name="portaB" onChange={setForm} type="number" min="1" max="3" />
+          <input className="input" name="portaB" onChange={setForm} type="number" min="1" max="3" />
         </label>
       </div>
 
+        <hr className="hr" />
       <div style={{ marginTop: "1rem" }}>
         <Button
           color="secondary"
@@ -82,6 +93,7 @@ export const WallTwo = ({ formData, setForm, navigation }) => {
         >
           Next
         </Button>
+      </div>
       </div>
     </Container>
   );
