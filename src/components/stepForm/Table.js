@@ -22,11 +22,11 @@ export const Table = (_props) => {
           <Row className="table" >
             <Col span={24} >
             <Col span={4}>{`sua area util é de ${sumWall} m²`}</Col>
-            O gasto total será de:
-            <Col span={4}>{lata05 > 0 && `você precisará de ${lata05} latas de 0.5L `}</Col>
-            <Col span={4}>{lata25 > 0 && `você precisará de ${lata25} latas de 2.5L `}</Col>
-            <Col span={4}>{lata36 > 0 && `você precisará de ${lata36} latas de 3.6L `}</Col>
-            <Col span={4}>{lata18 > 0 && `você precisará de ${lata18} latas de 18L `}</Col>
+            A quantidade total de tintas em latas são::
+            <Col span={4}>{lata05 > 0 && ` - ${lata05} latas de 0.5L `}</Col>
+            <Col span={4}>{lata25 > 0 && ` - ${lata25} latas de 2.5L `}</Col>
+            <Col span={4}>{lata36 > 0 && ` - ${lata36} latas de 3.6L `}</Col>
+            <Col span={4}>{lata18 > 0 && ` - ${lata18} latas de 18L `}</Col>
             </Col>
           </Row>
         </Col>

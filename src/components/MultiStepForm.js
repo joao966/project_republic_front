@@ -41,7 +41,6 @@ const steps = [
 
 export const MultiStepForm = () => {
   const [user, setUser ] = useState({});
-  // const [ user, setUser] = useState({});
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [formData, setForm] = useForm(defaultData);
   const { step, navigation } = useStep({
@@ -68,7 +67,7 @@ export const MultiStepForm = () => {
     console.log(user)
     return (
       <div>
-        <Modal title="PHOMETHEU TINTAS" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+        <Modal title="PROMETEU TINTAS" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
           <p>
             {`Olá ${user.name} bem-vindo ao calculador de tintas de Phometheu, preveja quanto irá gastar e economize seu bolso. Preencha o formulário e terá seu resultado em segundos!`}
           </p>
