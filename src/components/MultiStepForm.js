@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import axios from 'axios';
 import { useForm, useStep } from "react-hooks-helper";
 import { WallOne } from "./stepForm/WallOne";
 import { WallTwo } from "./stepForm/WallTwo";
@@ -39,8 +40,7 @@ const steps = [
 ];
 
 export const MultiStepForm = () => {
-  const { user } = useContext(context)
-  console.log(user)
+  const [user, setUser ] = useState({});
   // const [ user, setUser] = useState({});
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [formData, setForm] = useForm(defaultData);
@@ -58,10 +58,14 @@ export const MultiStepForm = () => {
   };
 
   useEffect(() => {
+    const emailToken = JSON.parse(localStorage.getItem('user'));
+   
+    axios.get(`https://project-republic.herokuapp.com/user?q=${emailToken.user.email}`).then((result) => setUser(result.data))
     setIsModalVisible(true);
   },[])
 
   if(isModalVisible) {
+    console.log(user)
     return (
       <div>
         <Modal title="PHOMETHEU TINTAS" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
