@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import  { Redirect } from 'react-router-dom';
+import pathImg from '../assets/prometheu.svg';
 
 /* import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -8,8 +10,8 @@ import StoreContext from '../Context/Context'; */
 import '../style/Login.css';
 
 function Login() {
-  // const [redirect, setRedirect] = useState(false);
-  const [token, setToken] = useState(false);
+  const [token, setToken] = useState('');
+  const [redirect, setRedirect] = useState(false);
   const [login, setLogin] = useState({
     email: '',
     password: '',
@@ -33,36 +35,31 @@ function Login() {
 
     axios.post('https://project-republic.herokuapp.com/login', user)
     .then((res) => {
-      console.log('res :', res.data);
       localStorage.setItem('token', res.data.token);
+      setRedirect((old) => !old);
     })
-    .catch((_res) => console.log('error login'));
-
-    const token = localStorage.getItem('token');
-    console.log(token)
-    
-    setToken(token);
-    // setRedirect(true);
+    .catch((_res) => toast.error('user or password invalid'));
   }
 
-  if (token) {
+  if (redirect) {
     return <Redirect to="/dashboard" />
   }
 
   return (
     <div className="container">
+      <img className="img" src={pathImg} />
       <div className="left">
       <div className="card">
-        <div className="input-form">
-            <div className="input-div">
+        <div className="">
+            <div className="">
               <input name="email" onChange={onChange} type="text" className="input-in input-ra" placeholder="Email" />
             </div>
             <div className="input-div">
               <input name="password" onChange={onChange} type="password" className="input-in input-ra" placeholder="Senha" />
             </div>
-          </div>
+        </div>
           <div className="input-form">
-            <button onClick={onSubmit} className="input-login input-ra">
+            <button onClick={onSubmit} className="input-login">
               Entrar
             </button>
           </div>

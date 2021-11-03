@@ -11,7 +11,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import IconButton from '@material-ui/core/IconButton';
 import EditIcon from '@material-ui/icons/Edit';
 
-import context from '../../context/contex'
+import context from '../../context/context'
 
 export const Review = ({ formData, navigation }) => {
   const { setCalculation } = useContext(context);

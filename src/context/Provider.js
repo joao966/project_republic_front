@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import context from './contex';
+import context from './context';
 // import { toast } from 'react-toastify';
 
 function Provider({children}) {
+  const [user, setUser] = useState({});
   const [calculation, setCalculation] = useState({
     lata05: 0,
     lata25: 0,
@@ -14,6 +15,8 @@ function Provider({children}) {
   const GLOBAL_STATE = {
     calculation,
     setCalculation,
+    setUser,
+    user,
   }
 
   return (

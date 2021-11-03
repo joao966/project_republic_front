@@ -8,7 +8,7 @@ import { Review } from "./stepForm/Review";
 import { Submit } from "./stepForm/Submit";
 import { Modal } from 'antd';
 import 'antd/dist/antd.css';
-// import context from '../context/contex';
+import context from '../context/context';
 
 const defaultData = {
   alturaA: "",
@@ -39,7 +39,9 @@ const steps = [
 ];
 
 export const MultiStepForm = () => {
-  // const { setdata } = useContext(context)
+  const { user } = useContext(context)
+  console.log(user)
+  // const [ user, setUser] = useState({});
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [formData, setForm] = useForm(defaultData);
   const { step, navigation } = useStep({
@@ -64,20 +66,14 @@ export const MultiStepForm = () => {
       <div>
         <Modal title="PHOMETHEU TINTAS" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
           <p>
-            
-            {`Olá ${'João'} bem-vindo ao calculador de tintas de Phometheu, preveja quanto irá gastar e economize seu bolso.
-            Preencha o formulário e terá seu resultado em segundos!
-            `
-            }
-            
+            {`Olá ${user.name} bem-vindo ao calculador de tintas de Phometheu, preveja quanto irá gastar e economize seu bolso. Preencha o formulário e terá seu resultado em segundos!`}
           </p>
           {''}
           <p>{'clique em OK para continuar'}</p>
-      </Modal>
+        </Modal>
       </div>
     )
-  }
-  
+  };
   
   const props = { formData, setForm, navigation };
   // setdata(formData);

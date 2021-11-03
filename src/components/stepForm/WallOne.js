@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // import context from '../../context/contex'
 
 export const WallOne = ({ formData, setForm, navigation }) => {
-  console.log('navigation', navigation)
+  // console.log('navigation', navigation)
 
   const {alturaA, larguraA, janelaA, portaA} = formData;
   // const {requisitionCep} = useContext(context);

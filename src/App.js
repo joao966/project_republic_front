@@ -9,10 +9,8 @@ import './style/globalStyle.css'
 function App() {
   return (
     <div className="content-app">
-      <div className="App">
-        <h1>Phometheu Tintas</h1>
-      </div>
-          <ToastContainer autoClose={3000} />
+     
+      <ToastContainer autoClose={3000} />
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Login} />
