@@ -1,0 +1,21 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f2f2f2;
+}
+
+.table {
+  border: 1px solid black;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.corporation input {
+  width: 150px;
+  height: 30px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}

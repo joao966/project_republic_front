@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { MultiStepForm } from "./components/MultiStepForm";
+import Login from './page/Login';
+import Register from './page/Register';
+import Header from './components/Header';
+import { ToastContainer } from 'react-toastify';
+import './style/globalStyle.css'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="content-app">
+      <ToastContainer autoClose={3000} />
+      <Header />
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <Route exact path="/register" component={Register} />   
+          <Route exact path="/dashboard" component={ () => {
+            const resultToken = localStorage.getItem('token');
+            if(resultToken) {
+              return <MultiStepForm />
+            } else {
+              return <p>Não atorizado</p>
+            }
+          }} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
