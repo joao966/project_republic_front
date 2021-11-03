@@ -67,7 +67,7 @@ export const MultiStepForm = () => {
     console.log(user)
     return (
       <div>
-        <Modal title="PROMETEU TINTAS" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+        <Modal data-testid="modal" title="PROMETEU TINTAS" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
           <p>
             {`Olá ${user.name} bem-vindo ao calculador de tintas de Phometheu, preveja quanto irá gastar e economize seu bolso. Preencha o formulário e terá seu resultado em segundos!`}
           </p>

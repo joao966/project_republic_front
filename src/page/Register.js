@@ -83,9 +83,10 @@ function Cadastrar() {
           id="password-login"
           name="password"
           onChange={onChange}
+          data-testid="password"
         />
       </div>
-      <button className="input-login" onClick={onSubmit} type="submit">
+      <button data-testid="button-register" className="input-login" onClick={onSubmit} type="submit">
         Criar conta
       </button>
       </div>

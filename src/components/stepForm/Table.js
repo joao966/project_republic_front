@@ -17,6 +17,7 @@ export const Table = (_props) => {
  
   return (
     <div >
+      <h1 data-testid="heading">O ORÁCULO PREVÊ</h1>
       <Row >
         <Col span={24} >
           <Row className="table" >
@@ -31,7 +32,7 @@ export const Table = (_props) => {
           </Row>
         </Col>
       </Row>
-    <Button>
+    <Button >
       Salvar consulta no histórico
     </Button>
     </div>

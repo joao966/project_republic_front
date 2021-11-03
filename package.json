@@ -17,7 +17,8 @@
     "react-input-mask": "^2.0.4",
     "react-router-dom": "^5.3.0",
     "react-scripts": "3.4.1",
-    "react-toastify": "^8.0.2"
+    "react-toastify": "^8.0.2",
+    "rtl": "^0.1.18"
   },
   "scripts": {
     "start": "react-scripts start",
