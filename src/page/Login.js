@@ -36,6 +36,7 @@ function Login() {
     axios.post('https://project-republic.herokuapp.com/login', user)
     .then((res) => {
       localStorage.setItem('token', res.data.token);
+      localStorage.setItem('email', email);
       setRedirect((old) => !old);
     })
     .catch((_res) => toast.error('user or password invalid'));

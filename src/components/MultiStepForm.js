@@ -58,9 +58,9 @@ export const MultiStepForm = () => {
   };
 
   useEffect(() => {
-    const emailToken = JSON.parse(localStorage.getItem('user'));
+    const emailToken = localStorage.getItem('email');
    
-    axios.get(`https://project-republic.herokuapp.com/user?q=${emailToken.user.email}`).then((result) => setUser(result.data))
+    axios.get(`https://project-republic.herokuapp.com/user?q=${emailToken}`).then((result) => setUser(result.data))
     setIsModalVisible(true);
   },[])
 
