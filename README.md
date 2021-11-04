@@ -28,8 +28,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 * React Testing Library
 
 ## LINK'S
-Repositório back-end: https://github.com/joao966/project_republic
-Deploy front-end: https://project-republic-front.herokuapp.com/
+- Repositório back-end: https://github.com/joao966/project_republic
+- Deploy front-end: https://project-republic-front.herokuapp.com/
 
 
 ## 🚀 Como executar o projeto
