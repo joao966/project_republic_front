@@ -3,8 +3,10 @@ import axios from 'axios';
 import context from '../context/context';
 import  { Redirect } from 'react-router-dom'
 import '../style/Login.css';
+import imgGif from '../assets/loading.gif';
 
 function Cadastrar() {
+  const [loading, setLoading] = useState(false);
   const {setUser} = useContext(context);
   const [redirect, setRedirect] = useState(false);
   const [register, setRegister] = useState({
@@ -23,7 +25,7 @@ function Cadastrar() {
   }
   
   const onSubmit = async () => {
- 
+    setLoading(true)
     try {
       const {name, email, password} = register;
   
@@ -37,6 +39,7 @@ function Cadastrar() {
    
       setUser(user)
       localStorage.setItem('user', JSON.stringify(result.data));
+      setLoading(false)
       setRedirect(true);  
     } catch (error) { 
       window.alert('algo deu errado')
@@ -45,6 +48,14 @@ function Cadastrar() {
   
   if (redirect) {
     return <Redirect to="/" />
+  }
+
+  if(loading) {
+    return (
+      <div className="loading">
+        <img src={imgGif} />
+      </div>
+    )
   }
 
   return (
