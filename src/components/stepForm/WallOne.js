@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 import {Col} from "antd";
@@ -40,7 +40,7 @@ export const WallOne = ({ formData, setForm, navigation }) => {
   return (
     <Container maxWidth="xs">
       <div className="container">
-      <img className="fadeIn" src={img} />
+      <img className="fadeIn" src={img} alt="gif-juca" />
       <h3>PAREDE UM</h3>
       <TextField
         

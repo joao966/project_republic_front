@@ -1,10 +1,10 @@
-import React, {useContext} from "react";
-import {Table} from './Table.js';
+import React from "react";
+import {Result} from './Result.js';
 
 export const Submit = (props) => {
   return (
     <div>
-      <Table props={props}/>
+      <Result props={props}/>
     </div>
   );
 };

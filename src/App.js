@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { MultiStepForm } from "./components/MultiStepForm";
-import Login from './page/Login';
-import Register from './page/Register';
+import Login from './pages/Login';
+import Register from './pages/Register';
 import Header from './components/Header';
 import { ToastContainer } from 'react-toastify';
 import './style/globalStyle.css'

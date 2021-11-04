@@ -6,8 +6,9 @@ import { toast } from 'react-toastify';
 import '../../style/Table.css';
 import { Redirect } from "react-router-dom";
 
-export const Table = (_props) => {
+export const Result = (_props) => {
   const { calculation } = useContext(context);
+  console.log(calculation)
   const [user, setUser] = useState({});
   const [redirect, setRedirect] = useState(false);
 
@@ -15,7 +16,6 @@ export const Table = (_props) => {
 
   useEffect(() => {
       const resultToken =  JSON.parse(localStorage.getItem('user'));
-      console.log(resultToken)
       setUser(resultToken.user);
   },[]);
 
@@ -35,7 +35,7 @@ export const Table = (_props) => {
       setUser(user)
       localStorage.setItem('history', JSON.stringify(result.data));
       setRedirect(true);
-      toast.warning(`${result.data.message} Obrigado por utilizar a pormeteu tintas!`);
+      toast.warning(`${result.data.message} Obrigado por utilizar a prometeu tintas!`);
     } catch (error) {
       toast.error('bad request');
     }

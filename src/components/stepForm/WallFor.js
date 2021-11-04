@@ -47,7 +47,7 @@ export const WallFor = ({ formData, setForm, navigation }) => {
   return (
     <Container maxWidth="xs">
       <div className="container">
-      <img className="fadeIn" src={img} />
+      <img className="fadeIn" src={img} alt="gif-juca" />
       <h3>PAREDE QUATRO</h3>
       <TextField
         label="altura"

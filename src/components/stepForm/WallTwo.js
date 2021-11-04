@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -41,7 +41,7 @@ export const WallTwo = ({ formData, setForm, navigation }) => {
   return (
     <Container maxWidth="xs">
       <div className="container">
-      <img className="fadeIn" src={img} />
+      <img className="fadeIn" src={img} alt="gif-juca" />
       <h3>PAREDE DOIS</h3>
       <TextField
         label="altura"
