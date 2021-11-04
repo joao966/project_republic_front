@@ -12,7 +12,7 @@ Os usuários terão acesso Desktop e Mobile, onde poderão:
 
 ### Mobile
 
-<img src=""/>
+<img src="src/assets/mobile.png"/>
 
 ### Desktop
 
