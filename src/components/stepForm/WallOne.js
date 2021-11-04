@@ -1,23 +1,25 @@
 import React, { useContext, useState } from "react";
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-// import InputMask from 'react-input-mask';
+import {Col} from "antd";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import context from '../../context/contex'
+import '../../style/form.css';
+import img from '../../assets/juca.svg';
 
 export const WallOne = ({ formData, setForm, navigation }) => {
-  // console.log('navigation', navigation)
 
   const {alturaA, larguraA, janelaA, portaA} = formData;
-  // const {requisitionCep} = useContext(context);
   
   const validate = () => {
     const sumWall = (Number(alturaA) * Number(larguraA));
     const resultPorta = (Number(portaA) * 1.52);
     const resultJanela = (Number(janelaA) * 2.4);
     const result = resultJanela + resultPorta;
+
+    if(!alturaA || !larguraA) {
+      return toast.error('preencha todos os campos')
+    };
 
     if(result <= sumWall / 2 ) {
       return navigation.next();
@@ -38,9 +40,11 @@ export const WallOne = ({ formData, setForm, navigation }) => {
   
   return (
     <Container maxWidth="xs">
+      <div className="container">
+      <img className="fadeIn" src={img} />
       <h3>PAREDE UM</h3>
-     
       <TextField
+        
         type="number"
         label="altura"
         name="alturaA"
@@ -52,6 +56,7 @@ export const WallOne = ({ formData, setForm, navigation }) => {
         fullWidth
       />
       <TextField
+        type="number"
         label="larguraA"
         name="larguraA"
         // value={larguraA}
@@ -64,14 +69,17 @@ export const WallOne = ({ formData, setForm, navigation }) => {
       <div style={{display: "flex", justifyContent: "space-around"}}>
         <label style={{display: "flex", flexDirection: "column"}}>
           Janela
-          <input onChange={setForm} name="janelaA" type="number" min="1" max="3" />
+          <input className="input" onChange={setForm} name="janelaA" type="number" min="1" max="3" />
         </label>
+        <Col span={1} />
         <label style={{display: "flex", flexDirection: "column"}}>
           Porta
-          <input onChange={setForm} name="portaA" type="number" min="1" max="3" />
+          <input className="input" onChange={setForm} name="portaA" type="number" min="1" max="3" />
         </label>
       </div>
-      <Button
+      <hr className="hr" />
+      <button
+        className="button"
         variant="contained"
         fullWidth
         color="primary"
@@ -79,7 +87,8 @@ export const WallOne = ({ formData, setForm, navigation }) => {
         onClick={handleClick}
       >
         Next
-      </Button>
+      </button>
+      </div>
     </Container>
   );
 };

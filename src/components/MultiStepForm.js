@@ -9,7 +9,6 @@ import { Review } from "./stepForm/Review";
 import { Submit } from "./stepForm/Submit";
 import { Modal } from 'antd';
 import 'antd/dist/antd.css';
-import context from '../context/context';
 
 const defaultData = {
   alturaA: "",

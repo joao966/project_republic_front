@@ -1,71 +1,55 @@
-# Getting Started with Create React App
+## 💻 Sobre o projeto
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+PROMETEU TINTAS foi desenvolvido com o objetivo de calcular a quantidade de tinta por metro quadrado.
 
-## Available Scripts
+Os usuários terão acesso Desktop e Mobile, onde poderão:
 
-In the project directory, you can run:
+- Criar Usuário.
+- Fazer Login
+- Calcular quantidade de tinta por metro quadrado.
 
-### `npm start`
+## 🎨 Layout
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Mobile
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<img src=""/>
 
-### `npm test`
+### Desktop
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img src="src/assets/layout.png"/>
 
-### `npm run build`
+🛠 Tecnologias
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+As seguintes ferramentas foram usadas na construção do projeto:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* React Js
+* Context API
+* React Router
+* React Testing Library
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## 🚀 Como executar o projeto
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Pré-requisitos
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Antes de começar, você vai precisar ter o [Git](https://git-scm.com) instalado em sua máquina.
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 🧭 Rodando a aplicação
+```bash
+# Clone este repositório
+$ git clone git@github.com:joao966/project_republic_front.git
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Acesse a pasta do projeto no seu terminal/cmd
+$ cd project_republic
 
-## Learn More
+# Instale as dependências
+$ npm install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Execute a aplicação em modo de desenvolvimento
+$ npm start
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# A aplicação será aberta na porta:3000 - acesse http://localhost:3000
+```
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# project_republic_front
+Feito com ❤️ por João Guilherme de Oliveira!

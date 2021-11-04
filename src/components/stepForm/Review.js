@@ -17,8 +17,7 @@ export const Review = ({ formData, navigation }) => {
   const { setCalculation } = useContext(context);
   const { go } = navigation;
   const { alturaA,larguraA, janelaA, portaA, alturaB, larguraB, janelaB, portaB, alturaC, larguraC, janelaC, portaC, alturaD, larguraD, janelaD, portaD } = formData;
-  // console.log('navigation', navigation)
-
+  
   const wallOne = Number(alturaA) * Number(larguraA) - (1.52 * portaA) - (2.4 * janelaA);
   const wallTwo = Number(alturaB) * Number(larguraB) - (1.52 * portaB) - (2.4 * janelaB);
   const wallTree = Number(alturaC) * Number(larguraC) - (1.52 * portaC) - (2.4 * janelaC);
@@ -27,49 +26,49 @@ export const Review = ({ formData, navigation }) => {
   const sumWall = Number(wallOne + wallTwo + wallTree + wallFor);
   let resultPaints = sumWall / 5;
 
-  let lata05 = 0, lata25 = 0, lata36 = 0, lata18 = 0;
+  let cans05 = 0, cans25 = 0, cans36 = 0, cans18 = 0;
 
   useEffect(() => {
     while (resultPaints > 0) {
       if (resultPaints >= 18) {
         resultPaints = resultPaints - 18
-        lata18 += 1;
+        cans18 += 1;
       } else if (resultPaints >= 3.6) {
         resultPaints = resultPaints - 3.6;
-        lata36 += 1;
+        cans36 += 1;
       } else if (resultPaints >= 2.5) {
         resultPaints = resultPaints - 2.5;
-        lata25 += 1;
+        cans25 += 1;
       } else {
         resultPaints = resultPaints - 0.5;
-        lata05 += 1;
+        cans05 += 1;
       }
     }
-    if (lata05 > 0) {
+    if (cans05 > 0) {
       setCalculation((oldState) => {
-        return {...oldState, lata05, sumWall }
+        return {...oldState, cans05, sumWall }
       });
     }
-    if (lata25 > 0) {
+    if (cans25 > 0) {
       setCalculation((oldState) => {
-        return {...oldState, lata25, sumWall}
+        return {...oldState, cans25, sumWall}
       });
     }
-    if (lata36 > 0) {
+    if (cans36 > 0) {
       setCalculation((oldState) => {
-        return {...oldState, lata36, sumWall}
+        return {...oldState, cans36, sumWall}
       });
     }
-    if (lata18 > 0) {
+    if (cans18 > 0) {
       setCalculation((oldState) => {
-        return {...oldState, lata18, sumWall}
+        return {...oldState, cans18, sumWall}
       });
     }
   }, [])
 
-
   return (
     <div className="form-reviw">
+        <div className="container">
       <Container maxWidth='sm'>
         <h3>Review</h3>
         <RenderAccordion summary="parede-um" go={ go } details={[
@@ -104,8 +103,8 @@ export const Review = ({ formData, navigation }) => {
           >
           Submit
         </Button>
-
       </Container>
+      </div>  
     </div>
   );
 };

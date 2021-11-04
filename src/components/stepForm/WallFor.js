@@ -2,10 +2,11 @@ import React from "react";
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-// import InputMask from 'react-input-mask';
+import {Col} from "antd";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import '../../style/form.css';
+import img from '../../assets/juca.svg';
 
 export const WallFor = ({ formData, setForm, navigation }) => {
   const {alturaD, larguraD, janelaD, portaD} = formData;
@@ -15,6 +16,10 @@ export const WallFor = ({ formData, setForm, navigation }) => {
     const resultPorta = (Number(portaD) * 1.52);
     const resultJanela = (Number(janelaD) * 2.4);
     const result = resultJanela + resultPorta;
+
+    if(!alturaD || !larguraD) {
+      return toast.error('preencha todos os campos')
+    };
 
     if(result <= sumWall / 2 ) {
       return navigation.next();
@@ -29,12 +34,14 @@ export const WallFor = ({ formData, setForm, navigation }) => {
     } else if(Number(portaD) > 0 && Number(alturaD) > 2.2) {
       validate();
     } else {
-      return toast.error('Altura da parede deve conter mais que 2.2');
+      return toast.error('Altura da parede deve conter mais que 2.2', {position: "bottom-center"});
     }
   }
   
   return (
     <Container maxWidth="xs">
+      <div className="container">
+      <img className="fadeIn" src={img} />
       <h3>PAREDE QUATRO</h3>
       <TextField
         label="altura"
@@ -56,34 +63,36 @@ export const WallFor = ({ formData, setForm, navigation }) => {
         autoComplete="off"
         fullWidth
       />
-      <div style={{display: "flex", justifyContent: "space-around"}}>
-        <label style={{display: "flex", flexDirection: "column"}}>
+     <div style={{display: "flex", justifyContent: "space-around"}}>
+        <label style={{display: "flex", flexDirection: "column"}} >
           Janela
-          <input onChange={setForm} name="janelaD" type="number" min="1" max="3" />
+          <input className="input" onChange={setForm} name="janelaD" type="number" min="1" max="3" />
         </label>
-        <label style={{display: "flex", flexDirection: "column"}}>
+        <Col span={1} />
+        <label style={{display: "flex", flexDirection: "column"}} >
           Porta
-          <input onChange={setForm} name="portaD" type="number" min="1" max="3" />
+          <input className="input" onChange={setForm} name="portaD" type="number" min="1" max="3" />
         </label>
       </div>
-
-      <div style={{ marginTop: "1rem" }}>
-        <Button
-          color="secondary"
-          variant="contained"
-          style={{ marginRight: "1rem" }}
-          onClick={() => navigation.previous()}
-        >
-          Back
-        </Button>
-        <Button
-          color="primary"
-          variant="contained"
-          onClick={handleClick}
-        >
-          Next
-        </Button>
+      <hr className="hr" />
+      <div className="buttonFor">
+      <Button
+        color="secondary"
+        variant="contained"
+        style={{ marginRight: "1rem" }}
+        onClick={() => navigation.previous()}
+      >
+        Back
+      </Button>
+      <Button
+        color="primary"
+        variant="contained"
+        onClick={handleClick}
+      >
+        Next
+      </Button>
       </div>
+    </div>
     </Container>
   );
 };
