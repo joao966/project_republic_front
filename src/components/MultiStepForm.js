@@ -7,8 +7,9 @@ import { WallTree } from "./stepForm/WallTree";
 import { WallFor } from "./stepForm/WallFor";
 import { Review } from "./stepForm/Review";
 import { Submit } from "./stepForm/Submit";
-import { Modal } from 'antd';
-import 'antd/dist/antd.css';
+import { Modal } from "antd";
+import "antd/dist/antd.css";
+import context from "../context/context";
 
 const defaultData = {
   alturaA: "",
@@ -39,6 +40,7 @@ const steps = [
 ];
 
 export const MultiStepForm = () => {
+  const { modal } = useContext(context);
   const [user, setUser ] = useState({});
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [formData, setForm] = useForm(defaultData);
@@ -58,12 +60,11 @@ export const MultiStepForm = () => {
   useEffect(() => {
     const emailToken = localStorage.getItem('email');
    
-    axios.get(`https://project-republic.herokuapp.com/user?q=${emailToken}`).then((result) => setUser(result.data))
+    axios.get(`https://project-republic.herokuapp.com/user?q=${emailToken}`).then((result) => setUser(result.data));
     setIsModalVisible(true);
-  },[])
+  },[modal])
 
   if(isModalVisible) {
-    console.log(user)
     return (
       <div>
         <Modal data-testid="modal" title="PROMETEU TINTAS" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
@@ -77,8 +78,7 @@ export const MultiStepForm = () => {
     )
   };
   
-  const props = { formData, setForm, navigation };
-  // setdata(formData);
+  const props = { formData, setForm, navigation, step };
 
   switch (step.id) {
     case "parede-um":

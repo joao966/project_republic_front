@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 import {Col} from "antd";
@@ -8,9 +8,8 @@ import '../../style/form.css';
 import img from '../../assets/juca.svg';
 
 export const WallOne = ({ formData, setForm, navigation }) => {
-
   const {alturaA, larguraA, janelaA, portaA} = formData;
-  
+
   const validate = () => {
     const sumWall = (Number(alturaA) * Number(larguraA));
     const resultPorta = (Number(portaA) * 1.52);

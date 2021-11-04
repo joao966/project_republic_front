@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -7,7 +7,6 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../../style/form.css';
 import img from '../../assets/juca.svg';
-
 
 export const WallTree = ({ formData, setForm, navigation }) => {
   const {alturaC, larguraC, janelaC, portaC} = formData;

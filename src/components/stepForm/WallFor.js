@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Container from "@material-ui/core/Container";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -7,9 +7,15 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../../style/form.css';
 import img from '../../assets/juca.svg';
+import context from "../../context/context";
 
 export const WallFor = ({ formData, setForm, navigation }) => {
+  const {setCurWall} = useContext(context);
   const {alturaD, larguraD, janelaD, portaD} = formData;
+
+  useEffect(() => {
+    setCurWall('review');
+  });
 
   const validate = () => {
     const sumWall = (Number(alturaD) * Number(larguraD));

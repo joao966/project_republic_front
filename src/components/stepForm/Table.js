@@ -1,18 +1,50 @@
 import React, {useContext, useEffect, useState} from "react";
+import axios from 'axios';
 import context from '../../context/context';
 import {Row, Col, Button} from 'antd';
+import { toast } from 'react-toastify';
 import '../../style/Table.css';
+import { Redirect } from "react-router-dom";
 
 export const Table = (_props) => {
-  const { calculation } = useContext(context);
-  const [token, setToken] = useState('');
+  const { calculation, setModal, setCurWall } = useContext(context);
+  const [user, setUser] = useState('');
+  const [redirect, setRedirect] = useState(false);
 
   const { cans05, cans25, cans36, cans18, sumWall } = calculation;
 
   useEffect(() => {
-    const resultToken = localStorage.getItem('token');
-    setToken(resultToken);
+    const resultUser = JSON.parse(localStorage.getItem('user'));
+    setUser(resultUser);
+    setCurWall('parede-um')
   }, []);
+
+  const handleClick = async () => {
+    try {
+      const {name} = user;
+      const resultSum = Number(cans05) + Number(cans18) + Number(cans25) + Number(cans36);
+
+      const newHistory = {
+        user: name,
+        meters: String(sumWall),
+        liters: "String(resultSum)",
+      }
+  
+      const result = await axios.post('https://project-republic.herokuapp.com/history', newHistory)
+     
+      setUser(user)
+      localStorage.setItem('history', JSON.stringify(result.data));
+      setRedirect(true);
+      setModal(true);
+      toast.warning(`${result.data.message} Obrigado por utilizar a pormeteu tintas!`);
+    } catch (error) {
+      toast.error('bad request');
+    }
+  };
+
+  if(redirect) {
+    return  <Redirect to="/" />;
+  }
  
   return (
     <div >
@@ -42,7 +74,7 @@ export const Table = (_props) => {
         <Col span={4} />
       </Row>
       <div className="buttonTable">
-        <Button >
+        <Button onClick={handleClick} >
           Salvar consulta no histórico
         </Button>
       </div>

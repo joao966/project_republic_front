@@ -3,6 +3,8 @@ import context from './context';
 // import { toast } from 'react-toastify';
 
 function Provider({children}) {
+  const [modal, setModal] = useState(false);
+  const [curWall, setCurWall] = useState('');
   const [user, setUser] = useState({});
   const [calculation, setCalculation] = useState({
     lata05: 0,
@@ -11,12 +13,15 @@ function Provider({children}) {
     lata18: 0,
   })
 
-
   const GLOBAL_STATE = {
     calculation,
     setCalculation,
     setUser,
     user,
+    setModal,
+    modal,
+    setCurWall,
+    curWall,
   }
 
   return (
