@@ -158,13 +158,17 @@ body {
   border-color: slateblue;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 360px) {
   .input-in {
     margin: 10px auto;
-    width: 50%; /* Valor da Largura */  
+    width: 100%;  
   }
   .input-login {
     padding: 6px 40px;
     width: auto;
+  }
+
+  .img {
+    width: 50%;  
   }
 }
