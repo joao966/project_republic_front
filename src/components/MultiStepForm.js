@@ -10,6 +10,7 @@ import { Submit } from "./stepForm/Submit";
 import { Modal } from "antd";
 import "antd/dist/antd.css";
 import context from "../context/context";
+import '../style/dashboard.css';
 
 const defaultData = {
   alturaA: "",
@@ -66,8 +67,8 @@ export const MultiStepForm = () => {
 
   if(isModalVisible) {
     return (
-      <div>
-        <Modal data-testid="modal" title="PROMETEU TINTAS" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+      <div >
+        <Modal className="modal" data-testid="modal" title="PROMETEU TINTAS" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
           <p>
             {`Olá ${user.name} bem-vindo ao calculador de tintas de Phometheu, preveja quanto irá gastar e economize seu bolso. Preencha o formulário e terá seu resultado em segundos!`}
           </p>

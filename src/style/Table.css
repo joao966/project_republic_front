@@ -28,3 +28,15 @@
   font-weight: 700;
   font-style: italic;
 }
+
+
+@media screen and (max-width: 360px) {
+  .title {
+    width: 70%;
+  }
+
+  .title h1 {
+    font-size: 20px;
+    margin-left: 100px;
+  }
+}
