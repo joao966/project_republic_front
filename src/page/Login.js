@@ -24,13 +24,17 @@ function Login() {
 
   function onSubmit () {
     const { email, password } = login;
-    setLoading(true);
 
+    if(!email || !password) {
+      return toast.error('preencha todos os campos');
+    }
+    setLoading(true);
+    
     const user = {
       email,
       password,
     }
-
+    
     axios.post('https://project-republic.herokuapp.com/login', user)
     .then((res) => {
       localStorage.setItem('token', res.data.token);
@@ -38,7 +42,10 @@ function Login() {
       setLoading(false);
       setRedirect((old) => !old);
     })
-    .catch((_res) => toast.error('user or password invalid'));
+    .catch((_res) => {
+      toast.error('user or password invalid');
+      setLoading(false);
+    });
   }
 
   if (redirect) {
