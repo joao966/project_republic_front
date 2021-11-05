@@ -41,6 +41,11 @@ USUÁRIO PADRÃO:
 - email: joao@joao.com.br
 - password: 123456
 
+OBSERVAÇÃO:
+
+- email: deve seguir o formato padrão com "/@/" e "/.com.br/".
+- password: deve contém mais que seis digitos.
+
 Antes de começar, você vai precisar ter o [Git](https://git-scm.com) instalado em sua máquina.
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/).
 
