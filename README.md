@@ -53,6 +53,9 @@ $ npm install
 # Execute a aplicação em modo de desenvolvimento
 $ npm start
 
+# Execute os testes
+$ npm test
+
 # A aplicação será aberta na porta:3000 - acesse http://localhost:3000
 ```
 
