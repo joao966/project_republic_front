@@ -36,6 +36,11 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ### Pré-requisitos
 
+USUÁRIO PADRÃO: 
+
+- email: joao@joao.com.br
+- password: 123456
+
 Antes de começar, você vai precisar ter o [Git](https://git-scm.com) instalado em sua máquina.
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/).
 
