@@ -28,7 +28,11 @@ export const WallTree = ({ formData, setForm, navigation }) => {
     }
   }
   
-  const handleClick = async () => { 
+  const handleClick = async () => {
+    if(Number(alturaC) > 15 && Number(alturaC) < 1 || Number(larguraC) > 15 || Number(larguraC) < 1) {
+      return toast.error('A parede não pode ser menor que 1 metro ou maior que 15 metros');
+    }
+
     if(portaC === '') {
       validate()
     } else if(Number(portaC) > 0 && Number(alturaC) > 2.2) {

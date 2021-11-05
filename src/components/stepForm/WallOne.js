@@ -28,6 +28,10 @@ export const WallOne = ({ formData, setForm, navigation }) => {
   }
   
   const handleClick = async () => { 
+    if(Number(alturaA) > 15 && Number(alturaA) < 1 || Number(larguraA) > 15 || Number(larguraA) < 1) {
+      return toast.error('A parede não pode ser menor que 1 metro ou maior que 15 metros');
+    }
+
     if(portaA === '') {
       validate()
     } else if(Number(portaA) > 0 && Number(alturaA) > 2.2) {
