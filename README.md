@@ -36,6 +36,16 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ### Pré-requisitos
 
+USUÁRIO PADRÃO: 
+
+- email: joao@joao.com.br
+- password: 123456
+
+OBSERVAÇÃO:
+
+- email: deve seguir o formato padrão com "/@/" e "/.com.br/".
+- password: deve contém mais que seis digitos.
+
 Antes de começar, você vai precisar ter o [Git](https://git-scm.com) instalado em sua máquina.
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/).
 
@@ -52,6 +62,9 @@ $ npm install
 
 # Execute a aplicação em modo de desenvolvimento
 $ npm start
+
+# Execute os testes
+$ npm test
 
 # A aplicação será aberta na porta:3000 - acesse http://localhost:3000
 ```
