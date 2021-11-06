@@ -27,9 +27,18 @@ export const WallTree = ({ formData, setForm, navigation }) => {
       return toast.error('Janelas e Portas não devem exeder 50% da area total');
     }
   }
+
   
   const handleClick = async () => {
-    if(Number(alturaC) > 15 && Number(alturaC) < 1 || Number(larguraC) > 15 || Number(larguraC) < 1) {
+    if(!alturaC || !larguraC) {
+      return toast.error('preencha todos os campos')
+    };
+
+    if(Number(alturaC) > 15 || Number(alturaC) < 1) {
+      return toast.error('A parede não pode ser menor que 1 metro ou maior que 15 metros');
+    }
+
+    if(Number(larguraC) > 15 || Number(larguraC) <1) {
       return toast.error('A parede não pode ser menor que 1 metro ou maior que 15 metros');
     }
 

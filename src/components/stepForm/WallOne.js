@@ -16,10 +16,6 @@ export const WallOne = ({ formData, setForm, navigation }) => {
     const resultJanela = (Number(janelaA) * 2.4);
     const result = resultJanela + resultPorta;
 
-    if(!alturaA || !larguraA) {
-      return toast.error('preencha todos os campos')
-    };
-
     if(result <= sumWall / 2 ) {
       return navigation.next();
     } else {
@@ -28,7 +24,15 @@ export const WallOne = ({ formData, setForm, navigation }) => {
   }
   
   const handleClick = async () => { 
-    if(Number(alturaA) > 15 && Number(alturaA) < 1 || Number(larguraA) > 15 || Number(larguraA) < 1) {
+    if(!alturaA || !larguraA) {
+      return toast.error('preencha todos os campos')
+    };
+
+    if(Number(alturaA) > 15 || Number(alturaA) < 1) {
+      return toast.error('A parede não pode ser menor que 1 metro ou maior que 15 metros');
+    }
+
+    if(Number(larguraA) > 15 || Number(larguraA) <1) {
       return toast.error('A parede não pode ser menor que 1 metro ou maior que 15 metros');
     }
 
@@ -39,6 +43,8 @@ export const WallOne = ({ formData, setForm, navigation }) => {
     } else {
       return toast.error('Altura da parede deve conter mais que 2.2');
     }
+
+    return;
   }
   
   return (

@@ -29,7 +29,15 @@ export const WallTwo = ({ formData, setForm, navigation }) => {
   }
   
   const handleClick = async () => { 
-    if(Number(alturaB) > 15 && Number(alturaB) < 1 || Number(larguraB) > 15 || Number(larguraB) < 1) {
+    if(!alturaB || !larguraB) {
+      return toast.error('preencha todos os campos')
+    };
+
+    if(Number(alturaB) > 15 || Number(alturaB) < 1) {
+      return toast.error('A parede não pode ser menor que 1 metro ou maior que 15 metros');
+    }
+
+    if(Number(larguraB) > 15 || Number(larguraB) <1) {
       return toast.error('A parede não pode ser menor que 1 metro ou maior que 15 metros');
     }
 

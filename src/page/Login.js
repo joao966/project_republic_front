@@ -62,7 +62,7 @@ function Login() {
 
   return (
     <div className="container">
-      <img className="img" src={img} />
+      <img className="img" src={img} alt="can"/>
       <div className="left">
       <div className="card">
         <div className="">
