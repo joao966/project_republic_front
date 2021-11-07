@@ -37,8 +37,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 USUÁRIO PADRÃO: 
 
-- email: joao@joao.com.br
-- password: 123456
+- email: joao@joao.com.br.
+- password: 123456.
 
 OBSERVAÇÃO:
 
