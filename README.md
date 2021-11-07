@@ -54,7 +54,7 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 $ git clone git@github.com:joao966/project_republic_front.git
 
 # Acesse a pasta do projeto no seu terminal/cmd
-$ cd project_republic
+$ cd project_republic_front
 
 # Instale as dependências
 $ npm install
