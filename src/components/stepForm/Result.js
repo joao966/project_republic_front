@@ -8,7 +8,7 @@ import { Redirect } from "react-router-dom";
 
 export const Result = (_props) => {
   const { calculation } = useContext(context);
-  console.log(calculation)
+
   const [user, setUser] = useState({});
   const [redirect, setRedirect] = useState(false);
 
@@ -16,22 +16,22 @@ export const Result = (_props) => {
 
   useEffect(() => {
       const resultToken =  JSON.parse(localStorage.getItem('user'));
-      setUser(resultToken.user);
+      setUser(resultToken);
   },[]);
 
   const handleClick = async () => {
     try {
       const {name} = user;
+
       const resultSum = Number(cans05) + Number(cans18) + Number(cans25) + Number(cans36);
-      console.log(name)
       const newHistory = {
         user: name,
         meters: String(sumWall),
         liters: String(resultSum + '000'),
       }
-  
+      console.log('click5')
+
       const result = await axios.post('https://project-republic.herokuapp.com/history', newHistory)
-     
       setUser(user)
       localStorage.setItem('history', JSON.stringify(result.data));
       setRedirect(true);

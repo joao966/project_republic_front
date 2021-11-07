@@ -9,7 +9,6 @@ import { Review } from "./stepForm/Review";
 import { Submit } from "./stepForm/Submit";
 import { Modal } from "antd";
 import "antd/dist/antd.css";
-import context from "../context/context";
 import '../style/dashboard.css';
 
 const defaultData = {
@@ -41,7 +40,6 @@ const steps = [
 ];
 
 export const MultiStepForm = () => {
-  const { modal } = useContext(context);
   const [user, setUser ] = useState({});
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [formData, setForm] = useForm(defaultData);
@@ -66,7 +64,7 @@ export const MultiStepForm = () => {
       setUser(result.data)
     });
     setIsModalVisible(true);
-  },[modal])
+  },[])
 
   if(isModalVisible) {
     return (
